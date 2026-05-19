@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CloudSmith.Inventory</RootNamespace>
+    <AssemblyName>CloudSmith.Inventory</AssemblyName>
+    <Version>0.1.0</Version>
+    <Authors>CloudSmith Contributors</Authors>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Description>VM and workload inventory for CloudSmith</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CloudSmith.Sdk" Version="0.1.0" />
+    <PackageReference Include="FluentMigrator" Version="5.2.0" />
+    <PackageReference Include="FluentMigrator.Runner" Version="5.2.0" />
+    <PackageReference Include="FluentMigrator.Runner.Postgres" Version="5.2.0" />
+    <PackageReference Include="Npgsql" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+</Project>
