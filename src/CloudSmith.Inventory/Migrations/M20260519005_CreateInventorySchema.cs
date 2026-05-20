@@ -40,10 +40,11 @@ public sealed class M20260519005_CreateInventorySchema : Migration
                 state         TEXT NOT NULL DEFAULT 'unknown',
                 workload_id   UUID REFERENCES inventory.workloads(workload_id) ON DELETE SET NULL,
                 registered_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-                last_seen     TIMESTAMPTZ,
-                UNIQUE (cluster_id, vm_guid) WHERE vm_guid IS NOT NULL
+                last_seen     TIMESTAMPTZ
             )
             """);
+
+        Execute.Sql("CREATE UNIQUE INDEX IF NOT EXISTS idx_vms_unique_cluster_vmguid ON inventory.virtual_machines (cluster_id, vm_guid) WHERE vm_guid IS NOT NULL");
 
         Execute.Sql("CREATE INDEX IF NOT EXISTS idx_vms_org_id      ON inventory.virtual_machines (org_id)");
         Execute.Sql("CREATE INDEX IF NOT EXISTS idx_vms_cluster_id  ON inventory.virtual_machines (cluster_id)");
